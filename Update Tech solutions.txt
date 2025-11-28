@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Solutions – Bringing technology to the world</title>
+
+    <!-- Tech‑y fonts -->
+    <link href="https:                                                                                                                            
+
+    <!-- Font‑Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans‑serif;
+            background: skyblue;
+            color: white;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #003366, #0055aa);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: Arial, sans‑serif;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            background: #222;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 170, 255, 0.2);
+        }
+
+        .section h2 {
+            font-family: Arial, sans‑serif;
+            color: white;
+            border-bottom: 1px solid #00aaff;
+            padding-bottom: 5px;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+            border: 2px solid #00aaff;
+            border-radius: 4px;
+        }
+
+        .about {
+            font-size: 1.4rem;
+            color: white;
+            text-shadow: 0 0 5px #00ffff;
+            line-height: 1.5;
+        }
+
+        .contact {
+            background: #003366;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 00.9rem;
+        }
+
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* WhatsApp button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 00.2s;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* ---------- NEW STYLES ---------- */
+
+        /* Search bar */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .search-bar input {
+            width: 70%;
+            padding: 8px 12px;
+            border: 2px solid #00aaff;
+            border-radius: 4px 0 0 4px;
+            background: #333;
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .search-bar button {
+            padding: 8px 16px;
+            border: 2px solid #00aaff;
+            border-left: 0;
+            border-radius: 0 4px 4px 0;
+            background: #00aaff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Image slider */
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border: 2px solid #00aaff;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .slider img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slider img.active {
+            opacity: 1;
+        }
+
+        /* Booking form */
+        .booking-form {
+            display: grid;
+            gap: 10px;
+            max-width: 400px;
+            margin: 15px 0;
+        }
+
+        .booking-form label {
+            font-size: 0.9rem;
+        }
+
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea {
+            padding: 6px 10px;
+            border: 1px solid #00aaff;
+            border-radius: 4px;
+            background: #333;
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .booking-form button {
+            padding: 10px;
+            background: #00aaff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Google Map embed */
+        .map-container {
+            margin: 15px 0;
+            border: 2px solid #00aaff;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Blog / Tips section */
+        .blog-post {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #555;
+        }
+
+        .blog-post h3 {
+            color: #00aaff;
+            margin: 5px 0;
+        }
+
+        .blog-post p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Loading animation */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #333;
+            border-top: 4px solid #00aaff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .about {
+                font-size: 1.2rem;
+            }
+
+            .search-bar input {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .search-bar input {
+                width: 90%;
+            }
+
+            .slider {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading animation -->
+    <div id="loader"><div class="spinner"></div></div>
+
+    <script>
+        // Hide loader once page is fully loaded
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 500);
+        });
+    </script>
+
+    <div class="header">
+        <h1>Tech Solutions</h1>
+        <p><em>Bringing technology to the world</em></p>
+
+        <!-- Search bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." id="searchInput">
+            <button onclick="searchSite()">🔍</button>
+        </div>
+        <script>
+            function searchSite() {
+                const query = document.getElementById('searchInput').value;
+                if (query.trim()) {
+                    alert('Search for “' + query + '” – implement your search logic here.');
+                    // e.g. window.location = '/search?q=' + encodeURIComponent(query);
+                }
+            }
+        </script>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>About Us</h2>
+            <p class="about">
+                Tech Solutions is a dynamic retail and service hub “Bringing technology to the world”. Located behind Samsuc Butchery, Office Number 2, Mbedzi Shops, Beitbridge, we offer sales & repairs of laptops, iPhones, PlayStations, TVs, smart‑watches & printers; accessories, software installations, ICT services (photocopying, laminating, scanning, email assistance), and bill‑payment solutions including DStv & South‑African e‑tyme vouchers.
+            </p>
+            <img src="flyer-image.jpg" alt="Tech Solutions Services Flyer">
+        </div>
+
+        <div class="section">
+            <h2>Image Gallery</h2>
+            <div class="slider">
+                <img src="flyer-image.jpg" alt="Flyer" class="active">
+                <img src="accessories-image.jpg" alt="Accessories">
+                <img src="software-image.jpg" alt="Software">
+                <img src="ict-services-image.jpg" alt="ICT Services">
+                <img src="clothing-image.jpg" alt="Clothing">
+                <img src="games-image.jpg" alt="Games">
+                <img src="we-load-image.jpg" alt="We Load">
+            </div>
+            <script>
+                // Simple auto‑slider
+                const slides = document.querySelectorAll('.slider img');
+                let current = 0;
+
+                function nextSlide() {
+                    slides[current].classList.remove('active');
+                    current = (current + 1) % slides.length;
+                    slides[current].classList.add('active');
+                }
+
+                setInterval(nextSlide, 3000);
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Our Services & Products</h2>
+
+            <div>
+                <h3>📦 Accessories</h3>
+                <img src="accessories-image.jpg" alt="Accessories – hard drives, cables, chargers">
+                <ul>
+                    <li>Hard drive sales & casings</li>
+                    <li>iPhone cables</li>
+                    <li>Laptop chargers & batteries</li>
+                    <li>Driver pack installation</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>💻 Computer Softwares</h3>
+                <img src="software-image.jpg" alt="Software installations">
+                <ul>
+                    <li>Windows installation (7‑11)</li>
+                    <li>Microsoft Office activation</li>
+                    <li>Anti‑virus setup</li>
+                    <li>Advanced troubleshooting</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>🛠️ ICT Services</h3>
+                <img src="ict-services-image.jpg" alt="ICT services – printing, laminating">
+                <ul>
+                    <li>Photocopying</li>
+                    <li>Typing</li>
+                    <li>Printing</li>
+                    <li>Laminating</li>
+                    <li>Computer repairs</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>👕 Clothing & Gadgets</h3>
+                <img src="clothing-image.jpg" alt="Clothing – T‑shirts, African attire">
+                <ul>
+                    <li>Plain T‑Shirts</li>
+                    <li>African dress</li>
+                    <li>Java/Machira/Linen</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>🎮 Computer Games</h3>
+                <img src="games-image.jpg" alt="Computer games – PES, FIFA, Call of Duty">
+                <ul>
+                    <li>Pro Evolution Soccer</li>
+                    <li>FIFA</li>
+                    <li>Call of Duty</li>
+                    <li>More...</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>📺 We Load</h3>
+                <img src="we-load-image.jpg" alt="We load – movies, music, series">
+                <ul>
+                    <li>Latest Movies & Series (HD)</li>
+                    <li>Music downloads</li>
+                    <li>Indian/Korean/African content</li>
+                    <li>DStv subscriptions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Book a Service</h2>
+            <form class="booking-form" action="                 
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="service">Service Needed</label>
+                <select id="service" name="service">
+                    <option value="repair">Device Repair</option>
+                    <option value="software">Software Installation</option>
+                    <option value="accessories">Accessories</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes" rows="3"></textarea>
+
+                <button type="submit">Request Appointment</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Find Us</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.581147812488!2d28.004166315342!3d-20.176694986403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjBvMTYnNDAnMzQuNCIgUyAyOCcwM'04'.NFEgRSAxMjM0NTY!5e0!3m2!1sen!2szw!4v1699999999999!5m2!1sen!2szw"
+                    width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Tech Tips & Blog</h2>
+
+            <div class="blog-post">
+                <h3>How to Keep Your Laptop Cool</h3>
+                <p><strong>Tip:</strong> Clean the vents regularly and use a cooling pad. Overheating reduces performance and shortens hardware life.</p>
+            </div>
+
+            <div class="blog-post">
+                <h3>Secure Your Online Accounts</h3>
+                <p><strong>Tip:</strong> Enable two‑factor authentication (2FA) on every service that offers it. It adds a vital extra layer of security.</p>
+            </div>
+
+            <div class="blog-post">
+                <h3>Speed Up Your Smartphone</h3>
+                <p><strong>Tip:</strong> Uninstall unused apps, clear cache, and keep the OS updated. A lighter phone runs smoother and lasts longer.</p>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:tinasheslim1128@gmail.com">tinasheslim1128@gmail.com</a> | <a href="mailto:techsolution263@gmail.com">techsolution263@gmail.com</a></p>
+            <p>Phone: <a href="tel:+263777025120">0777 025 120</a> / <a href="tel:+263717158965">0717 158 965</a></p>
+            <p>Address: Behind Samsuc Butchery, Office No. 2, Mbedzi Shops, Beitbridge</p>
+             </div>
+    </div>
+</body>
+</html>App button -->
+    <a href="https:                                                                            
+       class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
+>
+    </a>
+</body>
+</html>l>tml>tml>tml>
